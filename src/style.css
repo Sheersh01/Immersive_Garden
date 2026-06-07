@@ -1,0 +1,31 @@
+@font-face {
+  font-family: hel;
+  src: url("./fonts/HelveticaNeue-Regular.XE2tdPOO.woff2");
+}
+@font-face {
+  font-family: ps;
+  src: url("./fonts/PSTimes-Regular.hY69LrJ0.woff2");
+}
+* {
+  box-sizing: border-box;
+}
+*::-webkit-scrollbar{
+  display: none;
+}
+html, body {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+canvas{
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+#page1 {
+  font-family: "hel";
+}
