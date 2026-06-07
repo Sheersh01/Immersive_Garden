@@ -15,6 +15,11 @@ import {
 import { createGhostState, updateGhostMask } from "./effects/ghost-mask.js";
 import { updateFlowField } from "./effects/liquid-flow.js";
 import { setupScrollReveal } from "./effects/scroll-reveal.js";
+import plasterUrl from "./images/plaster.jpg";
+import roughnessUrl from "./images/roughness.jpg";
+import maskNoiseUrl from "./images/mask-noise.png";
+import marbleTextureUrl from "./images/marble-texture.webp";
+import reliefsModelUrl from "./models/reliefs_high_compressed.glb";
 
 // Basic Scene Setup
 const scene = new THREE.Scene();
@@ -46,12 +51,12 @@ dracoLoader.setDecoderConfig({ type: "js" });
 
 // Texture Loader
 const textureLoader = new THREE.TextureLoader();
-const plasterTexture = textureLoader.load("src/images/plaster.jpg");
+const plasterTexture = textureLoader.load(plasterUrl);
 plasterTexture.colorSpace = THREE.SRGBColorSpace;
 
-const roughnessTexture = textureLoader.load("src/images/roughness.jpg");
+const roughnessTexture = textureLoader.load(roughnessUrl);
 
-const maskNoiseTexture = textureLoader.load("src/images/mask-noise.png");
+const maskNoiseTexture = textureLoader.load(maskNoiseUrl);
 maskNoiseTexture.wrapS = THREE.RepeatWrapping;
 maskNoiseTexture.wrapT = THREE.RepeatWrapping;
 
@@ -96,7 +101,7 @@ if (bigImgCanvasElement) {
 }
 
 const bigImgTexture = textureLoader.load(
-  bigImgSrc || "src/images/marble-texture.webp",
+  bigImgSrc || marbleTextureUrl,
 );
 bigImgTexture.colorSpace = THREE.SRGBColorSpace;
 
@@ -513,7 +518,7 @@ document.addEventListener("mousemove", (event) => {
 
 // Load GLTF Model (example)
 gltfLoader.load(
-  "src/models/reliefs_high_compressed.glb",
+  reliefsModelUrl,
   (gltf) => {
     scene.add(gltf.scene);
 
